@@ -1,0 +1,6 @@
+# require 'active_support'
+# require 'active_support/core_ext'
+require 'keepachangelog/version'
+require 'keepachangelog/parser'
+require 'json'
+require 'yaml'

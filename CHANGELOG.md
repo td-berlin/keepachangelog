@@ -6,9 +6,8 @@ och detta projekt följer [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Nytt
+- Ruby gem som exponerar verktyget via Ruby och CLI.
+- Förmåga att konvertera Changelog till JSON.
+- Förmåga att konvertera Changelog till YAML.
 
-Artefakten skapades med `yo basalt`
-
-[//]: <> Lägg in jämförande sökvägar enligt: https://git.basalt.se/<namespace>/<path>/compare/<starting SHA>...HEAD eller ../compare/<tag1>...<tag2>
-
-[Unreleased]: https://git.basalt.se/
+[Unreleased]: https://git.basalt.se/chbr/keepachangelog/compare/77986bc...HEAD

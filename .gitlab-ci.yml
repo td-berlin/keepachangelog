@@ -1,12 +1,61 @@
 variables:
   GIT_SSL_NO_VERIFY: "true"
 
-before_script:
-  
-stages:
-  - test 
-  - build
+image: mwallasch/docker-ruby-node
 
-test:
+before_script:
+  - ruby -v
+  - node -v
+  - npm -v
+  - gem install bundler
+  - bin/setup
+
+cache:
+  paths:
+    - vendor/bundle
+    - node_modules
+
+stages:
+  - build
+  - test
+  - deploy
 
 build:
+  stage: build
+  script:
+    - grunt build
+  artifacts:
+    paths:
+    - keepachangelog-*.gem
+
+style:
+  script:
+    - "grunt test:style"
+
+spec:
+  script:
+    - "grunt test:spec"
+
+integration:
+  script:
+    - "grunt test:integration"
+
+download.basalt.se:
+  stage: deploy
+  environment: production
+  script:
+    - grunt publish
+  only:
+    - tags
+
+rubygems.org:
+  stage: deploy
+  environment: production
+  script:
+    - mkdir -p ~/.gem
+    - "echo \":rubygems_api_key: $RUBYGEMS_API_KEY\" > ~/.gem/credentials"
+    - chmod 0600 /root/.gem/credentials
+    - gem build keepachangelog.gemspec
+    - gem push keepachangelog-*.gem
+  only:
+    - tags
