@@ -1,7 +1,7 @@
-# Keepachangelog
+# Changelog parser and transformer
 
 Ruby gem for parsing Changelogs based on the format described at
-keepachangelog.com.
+[keepachangelog.com](http://keepachangelog.com).
 
 The parser can read either a Markdown file or a folder structure with
 YAML-files.
@@ -58,7 +58,7 @@ Each YAML-file should be in the following format:
 title: The ability to perform Foo while Bar is active
 merge_request: 11
 issue: 42
-author: @chbr
+author: "@chbr"
 type: New
 ```
 
@@ -72,7 +72,8 @@ type: New
 
 To turn this into a Markdown document, simply run `keepachangelog yaml -f md`
 
-You can add meta data to your changelog in the file `meta.yaml` like so:
+You can add meta data to your changelog in the file `meta.yaml`, placed inside
+the changelog folder, like so:
 
 ```yaml
 ---
@@ -85,7 +86,7 @@ The following meta data is read:
 - `title`: The title at the top of the Change log
 - `intro`: A text shown directly below the title
 - `url`: A URL to the git repository, used to generate links for versions
-  that follows the format *<url>/compare/FROM..TO*
+  that follows the format *&lt;url&gt;/compare/FROM..TO*
 
 ### From Ruby code
 

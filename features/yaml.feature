@@ -13,5 +13,5 @@ Feature: List transformators
     When I successfully run `keepachangelog yaml`
     Then the output should contain:
       """
-      {"versions":{"1.0.0":{"changes":{"New":["Feature A"]}}}}
+      {"versions":{"1.0.0":{"changes":{"New":["Feature A."]}}}}
       """

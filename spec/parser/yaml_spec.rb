@@ -19,7 +19,7 @@ type: New
           'versions' => {
             '1.2.3' => {
               'changes' => {
-                'New' => ['Feature A']
+                'New' => ['Feature A.']
               }
             }
           }

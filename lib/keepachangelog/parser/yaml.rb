@@ -22,7 +22,7 @@ module Keepachangelog
   #     title: The ability to perform Foo while Bar is active
   #     merge_request: 11
   #     issue: 42
-  #     author: @chbr
+  #     author: "@chbr"
   #     type: New
   #
   # - `title` is a single sentence without punctiation that describes the
@@ -92,7 +92,7 @@ module Keepachangelog
     end
 
     def generate_line(yaml)
-      line = yaml['title']
+      line = yaml['title'] + '.'
       line += " (!#{yaml['merge_request']})" if yaml['merge_request']
       line += " (##{yaml['issue']})" if yaml['issue']
       line += " (#{yaml['author']})" if yaml['author']
@@ -100,6 +100,7 @@ module Keepachangelog
     end
 
     def initialize_version(version)
+      return if parsed_content['versions'][version]
       parsed_content['versions'][version] = { 'changes' => {} }
     end
   end
