@@ -8,7 +8,6 @@ gem_files = git_files.reject { |f| f.match('.gitlab-ci.yml') }
 gem_files = git_files.reject { |f| f.match('.gitignore') }
 gem_files = git_files.reject { |f| f.match('CONTRIBUTING.md') }
 gem_files = git_files.reject { |f| f.match('Gruntfile.js') }
-gem_files = git_files.reject { |f| f.match('packages.json') }
 
 Gem::Specification.new do |spec|
   spec.name          = 'keepachangelog'
