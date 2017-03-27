@@ -5,29 +5,25 @@ module Keepachangelog
   # structure where each version is its own folder and each Merge Request
   # or Pull Request is in its own YAML-file.
   #
-  # ```
-  # changelog
-  # ├── 0.1.0
-  # │   └── 1-first-merge-request.yaml
-  # ├── 0.2.0
-  # │   └── 3-another-cool-mr.yaml
-  # ├── 0.3.0
-  # │   ├── 8-fixing-some-stuff.yaml
-  # │   └── 9-add-new-feature.yaml
-  # └── unreleased
-  #     └── 11-minor-patch.yaml
-  # ```
+  #     changelog
+  #     ├── 0.1.0
+  #     │   └── 1-first-merge-request.yaml
+  #     ├── 0.2.0
+  #     │   └── 3-another-cool-mr.yaml
+  #     ├── 0.3.0
+  #     │   ├── 8-fixing-some-stuff.yaml
+  #     │   └── 9-add-new-feature.yaml
+  #     └── unreleased
+  #         └── 11-minor-patch.yaml
   #
   # Each YAML file is expected to be in the following format:
   #
-  # ```yaml
-  # ---
-  # title: The ability to perform Foo while Bar is active
-  # merge_request: 11
-  # issue: 42
-  # author: @chbr
-  # type: New
-  # ```
+  #     ---
+  #     title: The ability to perform Foo while Bar is active
+  #     merge_request: 11
+  #     issue: 42
+  #     author: @chbr
+  #     type: New
   #
   # - `title` is a single sentence without punctiation that describes the
   #   change
