@@ -1,25 +1,42 @@
-# Change Log
-Alla ändringar till detta projekt dokumenteras i denna fil.
+# Change log
+All notable changes to this project will be documented in this file.
 
-Formatet är baserat på [Keep a Changelog](http://keepachangelog.com/)
-och detta projekt följer [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased]
+### Fixed
+- YAML parser can now read multiple changes in a version. (#2)
+- Do not display anchors when URL is missing. (#3)
+
+### New
+- Documentation on how to add metadata. (#4)
+
+## [0.3.0]
+### Fixed
+- YAML parser can now read multiple changes in a version. (#2)
+- Do not display anchors when URL is missing. (#3)
+
+### New
+- Documentation on how to add metadata. (#4)
 
 ## [0.2.1] - 2017-03-27
-### Fixat
-- Korrigera dokumentation för YAML-parser.
+### Fixed
+- Fix documentation formatting for YAML parser.
 
 ## [0.2.0] - 2017-03-27
-### Nytt
-- Förmåga att läsa in Changelog i YAML-format.
-- Förmåga att skriva till Markdown-format.
+### New
+- Ability to print in Markdown.
+- Ability to read YAML files.
 
 ## [0.1.0] - 2017-03-27
-### Nytt
-- Ruby gem som exponerar verktyget via Ruby och CLI.
-- Förmåga att konvertera Changelog till JSON.
-- Förmåga att konvertera Changelog till YAML.
+### New
+- Ability to convert Changelog to JSON.
+- Tool for reading Changelog in Markdown format.
+- Ability to convert Changelog to YAML.
 
-[Unreleased]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.1...HEAD
+[Unreleased]: https://git.basalt.se/chbr/keepachangelog/compare/0.3.0...HEAD
+[0.3.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.1...0.3.0
 [0.2.1]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.0...0.2.1
 [0.2.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.1.0...0.2.0
 [0.1.0]: https://git.basalt.se/chbr/keepachangelog/compare/77986bc...0.1.0

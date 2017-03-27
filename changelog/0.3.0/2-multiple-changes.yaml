@@ -1,0 +1,4 @@
+---
+title: YAML parser can now read multiple changes in a version
+issue: 2
+type: Fixed
