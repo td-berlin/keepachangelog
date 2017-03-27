@@ -8,16 +8,19 @@ module Keepachangelog
 
     # Parse a file with markdown content
     def self.load(filename = 'CHANGELOG.md')
-      parse File.open(filename, &:read)
+      p = new
+      p.parse File.open(filename, &:read)
+      p
     end
 
     def parse(content)
       content = "\n" + clean(content).strip + "\n"
       anchors = extract_anchors! content
       versions = content.split(/\n\s*## /)[1..-1]
-      {
-        'versions' => versions.map { |v| parse_version v, anchors }.to_h
-      }
+      parsed_content['versions'] = versions.map do |v|
+        parse_version v, anchors
+      end.to_h
+      parsed_content
     end
 
     private

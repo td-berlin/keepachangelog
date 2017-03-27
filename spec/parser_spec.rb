@@ -25,5 +25,13 @@ module Keepachangelog
         p.to_s
       end
     end
+
+    describe '.to_md' do
+      it 'should cast parsed content into a Markdown document' do
+        p = Parser.new
+        expect_any_instance_of(MarkdownPrinter).to receive(:to_s)
+        p.to_md
+      end
+    end
   end
 end

@@ -38,7 +38,7 @@ module Keepachangelog
     option :format, type: :string,
                     desc: 'The output format',
                     default: 'json',
-                    banner: 'json|yaml',
+                    banner: 'json|yaml|md',
                     aliases: '-f'
     option :path, type: :string,
                   desc: 'Path to the yaml folder',
