@@ -4,15 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.3.1] - 2017-03-27
 ### Fixed
-- YAML parser can now read multiple changes in a version. (#2)
-- Do not display anchors when URL is missing. (#3)
+- Remove duplicates in Changelog for this project. (#6)
 
-### New
-- Documentation on how to add metadata. (#4)
-
-## [0.3.0]
+## [0.3.0] - 2017-03-27
 ### Fixed
 - YAML parser can now read multiple changes in a version. (#2)
 - Do not display anchors when URL is missing. (#3)
@@ -35,7 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Tool for reading Changelog in Markdown format.
 - Ability to convert Changelog to YAML.
 
-[Unreleased]: https://git.basalt.se/chbr/keepachangelog/compare/0.3.0...HEAD
+[0.3.1]: https://git.basalt.se/chbr/keepachangelog/compare/0.3.0...0.3.1
 [0.3.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.1...0.3.0
 [0.2.1]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.0...0.2.1
 [0.2.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.1.0...0.2.0
