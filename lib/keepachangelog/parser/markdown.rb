@@ -15,7 +15,9 @@ module Keepachangelog
       content = "\n" + clean(content).strip + "\n"
       anchors = extract_anchors! content
       versions = content.split(/\n\s*## /)[1..-1]
-      versions.map { |v| parse_version v, anchors }.to_h
+      {
+        'versions' => versions.map { |v| parse_version v, anchors }.to_h
+      }
     end
 
     private

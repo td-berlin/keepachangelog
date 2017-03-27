@@ -16,9 +16,11 @@ type: New
 "
         cl = YamlParser.parse(content, '1.2.3')
         expect(cl).to eq(
-          '1.2.3' => {
-            'changes' => {
-              'New' => ['Feature A']
+          'versions' => {
+            '1.2.3' => {
+              'changes' => {
+                'New' => ['Feature A']
+              }
             }
           }
         )

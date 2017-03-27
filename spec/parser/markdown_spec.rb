@@ -5,7 +5,7 @@ module Keepachangelog
     describe '.parse' do
       it 'should parse empty content' do
         cl = MarkdownParser.parse('')
-        expect(cl).to eq({})
+        expect(cl).to eq('versions' => {})
       end
 
       it 'should parse single version' do
@@ -19,12 +19,14 @@ module Keepachangelog
         "
         cl = MarkdownParser.parse(content)
         expect(cl).to eq(
-          '1.2.3' => {
-            'url' => 'http://test.io',
-            'date' => '2017-01-01',
-            'changes' => {
-              'New' => ['Feature A'],
-              'Fixed' => ['Feature B']
+          'versions' => {
+            '1.2.3' => {
+              'url' => 'http://test.io',
+              'date' => '2017-01-01',
+              'changes' => {
+                'New' => ['Feature A'],
+                'Fixed' => ['Feature B']
+              }
             }
           }
         )
@@ -42,15 +44,17 @@ module Keepachangelog
         "
         cl = MarkdownParser.parse(content)
         expect(cl).to eq(
-          '2.0.0' => {
-            'url' => nil,
-            'date' => '2017-01-01',
-            'changes' => { 'New' => ['Feature A'] }
-          },
-          '1.0.0' => {
-            'url' => 'http://test.io',
-            'date' => nil,
-            'changes' => { 'Fixed' => ['Feature B'] }
+          'versions' => {
+            '2.0.0' => {
+              'url' => nil,
+              'date' => '2017-01-01',
+              'changes' => { 'New' => ['Feature A'] }
+            },
+            '1.0.0' => {
+              'url' => 'http://test.io',
+              'date' => nil,
+              'changes' => { 'Fixed' => ['Feature B'] }
+            }
           }
         )
       end
@@ -65,16 +69,18 @@ module Keepachangelog
         "
         cl = MarkdownParser.parse(content)
         expect(cl).to eq(
-          '3.0.0' => {
-            'url' => nil, 'date' => nil, 'changes' => {}
-          },
-          '2.0.0' => {
-            'url' => nil,
-            'date' => '2017-01-01',
-            'changes' => { 'New' => ['Feature A'] }
-          },
-          '1.0.0' => {
-            'url' => nil, 'date' => nil, 'changes' => {}
+          'versions' => {
+            '3.0.0' => {
+              'url' => nil, 'date' => nil, 'changes' => {}
+            },
+            '2.0.0' => {
+              'url' => nil,
+              'date' => '2017-01-01',
+              'changes' => { 'New' => ['Feature A'] }
+            },
+            '1.0.0' => {
+              'url' => nil, 'date' => nil, 'changes' => {}
+            }
           }
         )
       end

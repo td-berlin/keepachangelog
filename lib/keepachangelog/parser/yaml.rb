@@ -59,19 +59,32 @@ module Keepachangelog
 
     # Parse a folder with YAML files
     def load(path = 'changelog')
+      read_meta("#{path}/meta.yaml")
       Dir.glob("#{path}/*").each { |f| parse_version(f) }
     end
 
     private
 
+    def read_meta(path)
+      return unless File.exist?(path)
+      content = File.open(path, &:read)
+      yaml = YAML.safe_load content
+      return unless yaml
+      parsed_content['title'] = yaml['title']
+      parsed_content['url'] = yaml['url']
+      parsed_content['intro'] = yaml['intro']
+    end
+
     def add_change(yaml, version)
-      parsed_content[version]['changes'][yaml['type']] ||= []
-      parsed_content[version]['changes'][yaml['type']] << generate_line(yaml)
+      changes = parsed_content['versions'][version]['changes']
+      changes[yaml['type']] = (changes[yaml['type']] || []) +
+                              [generate_line(yaml)]
       parsed_content
     end
 
     def parse_version(folder)
       version = File.basename(folder)
+      return if version == 'meta.yaml'
       initialize_version version
       files = Dir.glob("#{folder}/**/*.yaml") +
               Dir.glob("#{folder}/**/*.yml")
@@ -91,7 +104,7 @@ module Keepachangelog
     end
 
     def initialize_version(version)
-      parsed_content[version] = { 'changes' => {} }
+      parsed_content['versions'][version] = { 'changes' => {} }
     end
   end
 end

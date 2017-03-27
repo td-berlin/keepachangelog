@@ -13,7 +13,7 @@ Feature: List transformators
     When I successfully run `keepachangelog markdown`
     Then the output should contain:
       """
-      {"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}
+      {"versions":{"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}}
       """
 
   Scenario: Running without command
@@ -26,7 +26,7 @@ Feature: List transformators
     When I successfully run `keepachangelog`
     Then the output should contain:
       """
-      {"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}
+      {"versions":{"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}}
       """
 
   Scenario: Changelog has a non-default filename
@@ -39,5 +39,5 @@ Feature: List transformators
     When I successfully run `keepachangelog --path=HISTORY.md`
     Then the output should contain:
       """
-      {"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}
+      {"versions":{"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}}}
       """

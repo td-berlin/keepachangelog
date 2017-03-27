@@ -1,9 +1,11 @@
+require 'keepachangelog/markdown_printer'
+
 module Keepachangelog
   class Parser
     attr_accessor :parsed_content
 
     def initialize
-      self.parsed_content = {}
+      self.parsed_content = { 'versions' => {} }
     end
 
     # Changelog in JSON format
@@ -38,6 +40,15 @@ module Keepachangelog
     # ```
     def to_s
       parsed_content.to_s
+    end
+
+    # Changelog as Markdown
+    def to_md
+      md = MarkdownPrinter.new(parsed_content['versions'],
+                               title: parsed_content['title'],
+                               intro: parsed_content['intro'],
+                               url: parsed_content['url'])
+      md.to_s
     end
   end
 end
