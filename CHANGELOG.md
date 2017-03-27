@@ -4,6 +4,9 @@ Alla ändringar till detta projekt dokumenteras i denna fil.
 Formatet är baserat på [Keep a Changelog](http://keepachangelog.com/)
 och detta projekt följer [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+- Förmåga att läsa in Changelog i YAML-format.
+
 ## [0.1.0] - 2017-03-27
 ### Nytt
 - Ruby gem som exponerar verktyget via Ruby och CLI.

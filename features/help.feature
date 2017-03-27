@@ -8,6 +8,5 @@ Feature: Show help
     Then the output should contain "Keepachangelog commands"
 
   Scenario: Getting help about a command
-    When I successfully run `keepachangelog help parse`
-    Then the output should contain "Options"
-    And the output should contain "Usage"
+    When I successfully run `keepachangelog help markdown`
+    Then the output should contain "Usage"

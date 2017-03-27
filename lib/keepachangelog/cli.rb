@@ -18,22 +18,38 @@ module Keepachangelog
       shell.say Keepachangelog.version
     end
 
-    desc '<options> parse', 'Parse a changelog'
+    desc 'markdown', 'Parse a changelog in markdown'
     option :format, type: :string,
                     desc: 'The output format',
                     default: 'json',
                     banner: 'json|yaml',
                     aliases: '-f'
     option :path, type: :string,
-                  desc: 'Path to the changelog file',
+                  desc: 'Path to the Changelog file',
                   default: 'CHANGELOG.md',
                   aliases: '-p'
-    def parse
-      require 'keepachangelog/parser'
-      p = Parser.load(options[:path])
+    def markdown
+      require 'keepachangelog/parser/markdown'
+      p = MarkdownParser.load(options[:path])
       shell.say p.send("to_#{options[:format]}")
     end
 
-    default_task :parse
+    desc 'yaml', 'Parse a folder of YAML files'
+    option :format, type: :string,
+                    desc: 'The output format',
+                    default: 'json',
+                    banner: 'json|yaml',
+                    aliases: '-f'
+    option :path, type: :string,
+                  desc: 'Path to the yaml folder',
+                  default: 'changelog',
+                  aliases: '-p'
+    def yaml
+      require 'keepachangelog/parser/yaml'
+      p = YamlParser.load(options[:path])
+      shell.say p.send("to_#{options[:format]}")
+    end
+
+    default_task :markdown
   end
 end
