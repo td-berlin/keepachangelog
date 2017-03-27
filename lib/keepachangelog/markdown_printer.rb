@@ -23,6 +23,7 @@ module Keepachangelog
     private
 
     def clean_intro(text)
+      return nil unless text
       text.to_s.strip.gsub("\n", "\n\n")
     end
 
@@ -42,6 +43,7 @@ module Keepachangelog
     end
 
     def anchors
+      return nil unless options[:url]
       v = versions.keys.sort.reverse
       (0..v.length - 1).map { |i| anchor(v, i) }
     end
