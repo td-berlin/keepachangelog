@@ -14,6 +14,23 @@ module Keepachangelog
         expect(md).to match('# My Title')
         expect(md).to match('## 1.0.0')
       end
+
+      it 'should order versions numerically' do
+        versions = {
+          '0.1.0' => {
+            'changes' => { 'New' => ['Feature A'] }
+          },
+          '0.10.0' => {
+            'changes' => { 'New' => ['Feature B'] }
+          },
+          '0.2.0' => {
+            'changes' => { 'New' => ['Feature C'] }
+          }
+        }
+        p = MarkdownPrinter.new(versions)
+        md = p.to_s.delete("\n")
+        expect(md).to match(/.*0\.10\.0.*0\.2\.0.*0\.1\.0.*/)
+      end
     end
   end
 end

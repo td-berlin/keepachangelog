@@ -13,14 +13,17 @@ module Keepachangelog
         "# #{options[:title] || default_title}",
         clean_intro(options[:intro]) || default_intro,
         '',
-        versions.reverse_each.map do |k, v|
-          version(k, v)
-        end,
+        parse_versions(versions),
         anchors
       ].flatten.join("\n")
     end
 
     private
+
+    def parse_versions(versions)
+      versions.sort { |a, b| Gem::Version.new(a[0]) <=> Gem::Version.new(b[0]) }
+              .reverse_each.map { |k, v| version(k, v) }
+    end
 
     def clean_intro(text)
       return nil unless text
