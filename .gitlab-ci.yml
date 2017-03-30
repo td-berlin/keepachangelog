@@ -40,10 +40,15 @@ integration:
   script:
     - "grunt test:integration"
 
-download.basalt.se:
+fileshare:
   stage: deploy
   environment: production
   script:
+    - |
+      if [[ "$SSH_KEY" == "" || "$SSH_USER" == "" || "$TARGET_HOST" == "" || "$TARGET_PATH" == "" ]]; then
+        echo "Skipping deploy due to missing credentials"
+        exit 0
+      fi
     - grunt publish
   only:
     - tags
@@ -53,7 +58,7 @@ rubygems.org:
   environment: production
   script:
     - |
-      if [[ "$RUBYGEMS_API_KEY" ]]; then
+      if [[ "$RUBYGEMS_API_KEY" == "" ]]; then
         echo "Skipping deploy due to missing credentials"
         exit 0
       fi

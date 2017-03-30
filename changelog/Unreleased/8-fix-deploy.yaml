@@ -1,0 +1,4 @@
+---
+title: Deploy job in CI will no longer be skipped even though it should run
+issue: 8
+type: Fixed
