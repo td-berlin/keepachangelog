@@ -4,9 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.4.0]
 ### New
-- Foobar (@chbr) (!3).
+- Ability to output changelog to yaml file structure. (!9)
+
+### Fixed
+- Sort versions in reverse numerical order in Markdown output. (#7)
 
 ## [0.3.1] - 2017-03-27
 ### Fixed
@@ -35,6 +38,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Tool for reading Changelog in Markdown format.
 - Ability to convert Changelog to YAML.
 
+[0.4.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.3.1...0.4.0
 [0.3.1]: https://git.basalt.se/chbr/keepachangelog/compare/0.3.0...0.3.1
 [0.3.0]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.1...0.3.0
 [0.2.1]: https://git.basalt.se/chbr/keepachangelog/compare/0.2.0...0.2.1
