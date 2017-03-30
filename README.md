@@ -33,7 +33,7 @@ Or install it yourself as:
 ### Command line
 
 When using the parser there are four important options to pay attention to:
-- `from` - The input format.
+- `from` - The input format
 - `to` - The output format
 - `in` - The input file or folder
 - `out` - The output folder (only used when output format is `yaml`)
@@ -43,7 +43,7 @@ See `keepachangelog help parse` for more information.
 #### Markdown input
 To dump a Changelog to JSON run the following command:
 
-    keepachangelog --in CHANGELOG.md --to json
+    keepachangelog --in CHANGELOG.md --from md --to json
 
 #### YAML input
 You can also express your changelog in YAML files inside a folder structure
@@ -83,7 +83,8 @@ type: New
 - `type`: The type of change, for example *New*, *Changed*, *Fixed*,
   *Removed* or *Security*.
 
-To turn this into a Markdown document, simply run `keepachangelog yaml -f md`
+To turn this into a Markdown document, simply run
+`keepachangelog --in ./changelog --from yaml --to md`
 
 You can add meta data to your changelog in the file `meta.yaml`, placed inside
 the changelog folder, like so:
