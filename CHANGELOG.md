@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### New
+- Foobar (@chbr) (!3).
+
 ## [0.3.1] - 2017-03-27
 ### Fixed
 - Remove duplicates in Changelog for this project. (#6)

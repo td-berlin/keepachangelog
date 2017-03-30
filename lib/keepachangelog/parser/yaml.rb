@@ -39,7 +39,8 @@ module Keepachangelog
     end
 
     # Parse a folder with YAML files
-    def self.load(path = 'changelog')
+    def self.load(path = nil)
+      path ||= 'changelog'
       p = new
       p.load(path)
       p
@@ -54,7 +55,8 @@ module Keepachangelog
     end
 
     # Parse a folder with YAML files
-    def load(path = 'changelog')
+    def load(path = nil)
+      path ||= 'changelog'
       read_meta("#{path}/meta.yaml")
       Dir.glob("#{path}/*").each { |f| parse_version(f) }
     end
@@ -92,7 +94,8 @@ module Keepachangelog
     end
 
     def generate_line(yaml)
-      line = yaml['title'] + '.'
+      line = yaml['title']
+      line += + '.' unless line =~ /[[:punct:]]$/
       line += " (!#{yaml['merge_request']})" if yaml['merge_request']
       line += " (##{yaml['issue']})" if yaml['issue']
       line += " (#{yaml['author']})" if yaml['author']

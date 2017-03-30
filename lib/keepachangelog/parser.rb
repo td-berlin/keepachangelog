@@ -1,5 +1,3 @@
-require 'keepachangelog/markdown_printer'
-
 module Keepachangelog
   class Parser
     attr_accessor :parsed_content
@@ -28,8 +26,11 @@ module Keepachangelog
     #     New:
     #     - Feature A
     # ```
-    def to_yaml
-      parsed_content.to_yaml
+    def to_yaml(path = nil)
+      path ||= 'changelog'
+      require 'keepachangelog/printer/yaml'
+      p = YamlPrinter.new(parsed_content)
+      p.write(path)
     end
 
     # Changelog as a Ruby string
@@ -44,11 +45,12 @@ module Keepachangelog
 
     # Changelog as Markdown
     def to_md
-      md = MarkdownPrinter.new(parsed_content['versions'],
-                               title: parsed_content['title'],
-                               intro: parsed_content['intro'],
-                               url: parsed_content['url'])
-      md.to_s
+      require 'keepachangelog/printer/markdown'
+      p = MarkdownPrinter.new(parsed_content['versions'],
+                              title: parsed_content['title'],
+                              intro: parsed_content['intro'],
+                              url: parsed_content['url'])
+      p.to_s
     end
   end
 end

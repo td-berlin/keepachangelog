@@ -1,5 +1,5 @@
 module Keepachangelog
-  class MarkdownPrinter
+  class MarkdownPrinter < Printer
     attr_accessor :options
     attr_accessor :versions
 
@@ -21,13 +21,21 @@ module Keepachangelog
     private
 
     def parse_versions(versions)
-      versions.sort { |a, b| Gem::Version.new(a[0]) <=> Gem::Version.new(b[0]) }
+      versions.sort { |a, b| compare_versions(a[0], b[0]) }
               .reverse_each.map { |k, v| version(k, v) }
+    end
+
+    def compare_versions(a, b)
+      a = Gem::Version.new(a) if Gem::Version.correct?(a)
+      b = Gem::Version.new(b) if Gem::Version.correct?(b)
+      return -1 if b == 'Unreleased'
+      return 1 if a == 'Unreleased'
+      a <=> b
     end
 
     def clean_intro(text)
       return nil unless text
-      text.to_s.strip.gsub("\n", "\n\n")
+      text.to_s.strip
     end
 
     def version(header, content)

@@ -28,7 +28,8 @@ module Keepachangelog
                 'Fixed' => ['Feature B']
               }
             }
-          }
+          },
+          'url' => 'http://test.io'
         )
       end
 
@@ -55,7 +56,8 @@ module Keepachangelog
               'date' => nil,
               'changes' => { 'Fixed' => ['Feature B'] }
             }
-          }
+          },
+          'url' => 'http://test.io'
         )
       end
 
@@ -82,6 +84,22 @@ module Keepachangelog
               'url' => nil, 'date' => nil, 'changes' => {}
             }
           }
+        )
+      end
+
+      it 'should parse title and intro' do
+        content = "
+        # My Title
+        My test intro.
+        ## 1.0.0
+        "
+        cl = MarkdownParser.parse(content)
+        expect(cl).to eq(
+          'versions' => {
+            '1.0.0' => { 'url' => nil, 'date' => nil, 'changes' => {} }
+          },
+          'title' => 'My Title',
+          'intro' => 'My test intro.'
         )
       end
     end

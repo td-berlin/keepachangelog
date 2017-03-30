@@ -11,9 +11,9 @@ module Keepachangelog
     end
 
     describe '.to_yaml' do
-      it 'should cast parsed content into yaml' do
+      it 'should cast parsed content into a yaml files' do
         p = Parser.new
-        expect(p.parsed_content).to receive(:to_yaml)
+        expect_any_instance_of(YamlPrinter).to receive(:write)
         p.to_yaml
       end
     end

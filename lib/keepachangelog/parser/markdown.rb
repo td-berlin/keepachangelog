@@ -7,16 +7,19 @@ module Keepachangelog
     end
 
     # Parse a file with markdown content
-    def self.load(filename = 'CHANGELOG.md')
+    def self.load(filename = nil)
+      filename ||= 'CHANGELOG.md'
       p = new
       p.parse File.open(filename, &:read)
       p
     end
 
     def parse(content)
-      content = "\n" + clean(content).strip + "\n"
+      content = "\n" + content.strip + "\n"
       anchors = extract_anchors! content
-      versions = content.split(/\n\s*## /)[1..-1]
+      sections = content.split(/\n\s*## /)
+      parse_meta anchors, sections[0]
+      versions = sections[1..-1]
       parsed_content['versions'] = versions.map do |v|
         parse_version v, anchors
       end.to_h
@@ -25,24 +28,42 @@ module Keepachangelog
 
     private
 
-    def clean(content)
-      content.sub(/^.*?\n\s*## /, '## ')
+    def parse_meta(anchors, header)
+      url = get_repo_url(anchors)
+      title = extract_title!(header)
+      intro = header.strip
+      parsed_content['url'] = url if url
+      parsed_content['intro'] = intro unless intro.to_s.empty?
+      parsed_content['title'] = title if title
+    end
+
+    def extract_title!(text)
+      title_pattern = /# (?<title>.*)/
+      match = text.match(title_pattern)
+      return nil unless match && match[:title]
+      text.gsub!(title_pattern, '').strip!
+      match[:title]
     end
 
     def parse_version(content, anchors)
-      header_pattern = /\[(?<name>.*)\]( - (?<date>\d\d\d\d-\d\d-\d\d))?/
+      header_pattern = /\[?(?<name>[^\]]*)\]?( - (?<date>\d\d\d\d-\d\d-\d\d))?/
       sections = content.split(/\n\s*### /)
       header = sections[0].match header_pattern
-      [header[:name],
+      [header[:name].strip,
        {
-         'url' => get_url(header[:name], anchors),
+         'url' => get_version_url(header[:name], anchors),
          'date' => header[:date],
          'changes' => sections[1..-1].map { |s| parse_section s }.to_h
        }]
     end
 
-    def get_url(version, anchors)
+    def get_version_url(version, anchors)
       anchors.keys.include?(version) ? anchors[version] : nil
+    end
+
+    def get_repo_url(anchors)
+      return nil unless anchors && anchors.values && anchors.values.first
+      anchors.values.first.gsub(%r{/compare/.*}, '')
     end
 
     def parse_section(content)
@@ -54,7 +75,7 @@ module Keepachangelog
     end
 
     def clean_bullet(string)
-      string.strip.gsub(/^\s*- /, '').gsub(/\(.*#\d+\)\.?$/, '').strip
+      string.strip.gsub(/^\s*- /, '').strip
     end
 
     def extract_anchors!(content)

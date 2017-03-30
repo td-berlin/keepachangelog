@@ -4,9 +4,9 @@ Ruby gem for parsing Changelogs based on the format described at
 [keepachangelog.com](http://keepachangelog.com).
 
 The parser can read either a Markdown file or a folder structure with
-YAML-files.
+YAML files.
 
-The output can be Markdown, YAML or JSON.
+The output can be Markdown, YAML files or JSON.
 
 ## Installation
 
@@ -28,17 +28,26 @@ Or install it yourself as:
 
 ### Command line
 
+When using the parser there are four important options to pay attention to:
+- `from` - The input format.
+- `to` - The output format
+- `in` - The input file or folder
+- `out` - The output folder (only used when output format is `yaml`)
+
+See `keepachangelog help parse` for more information.
+
 #### Markdown input
 To dump a Changelog to JSON run the following command:
 
-    keepachangelog --path CHANGELOG.md --format json
+    keepachangelog --in CHANGELOG.md --to json
 
 #### YAML input
 You can also express your changelog in YAML files inside a folder structure
 where each version is its own folder containing each change in a YAML-file.
 
 Here's an example of a folder structure:
-```
+
+```shell
 changelog
 ├── 0.1.0
 │   └── 1-first-merge-request.yaml
@@ -63,7 +72,7 @@ type: New
 ```
 
 
-- `title`: A single sentence without punctiation that describes the change
+- `title`: A single sentence that describes the change
 - `merge_request`: The ID of the MR or PR (optional)
 - `issue`: The ID of the issue (optional)
 - `author`: The author of the change (optional)
