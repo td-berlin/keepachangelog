@@ -52,6 +52,11 @@ rubygems.org:
   stage: deploy
   environment: production
   script:
+    - |
+      if [[ "$RUBYGEMS_API_KEY" ]]; then
+        echo "Skipping deploy due to missing credentials"
+        exit 0
+      fi
     - mkdir -p ~/.gem
     - "echo \":rubygems_api_key: $RUBYGEMS_API_KEY\" > ~/.gem/credentials"
     - chmod 0600 /root/.gem/credentials

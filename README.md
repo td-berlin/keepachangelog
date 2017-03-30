@@ -1,3 +1,7 @@
+[![build status](https://gitlab.com/ephracis/keepachangelog/badges/master/build.svg)](https://gitlab.com/ephracis/keepachangelog/commits/master)
+[![coverage report](https://gitlab.com/ephracis/keepachangelog/badges/master/coverage.svg)](https://gitlab.com/ephracis/keepachangelog/commits/master)
+[![Gem Version](https://badge.fury.io/rb/keepachangelog.svg)](https://badge.fury.io/rb/keepachangelog)
+
 # Changelog parser and transformer
 
 Ruby gem for parsing Changelogs based on the format described at

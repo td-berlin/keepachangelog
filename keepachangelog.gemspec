@@ -14,12 +14,12 @@ Gem::Specification.new do |spec|
   spec.version       = Keepachangelog.version
   spec.authors       = ['Basalt AB']
   spec.email         = %w(christoffer.brodd-reijer@basalt.se)
-  spec.licenses      = ['Nonstandard']
+  spec.licenses      = ['MIT']
   spec.summary       = 'Parser for changelogs based on keepachangelog.com'
   spec.description   = 'Tool for parsing changelogs that are based on the '\
                        'keepachangelog.com standard. Changelogs can be dumped '\
                        'to JSON or YAML.'
-  spec.homepage      = 'http://www.basalt.se'
+  spec.homepage      = 'https://gitlab.com/ephracis/keepachangelog'
   spec.files         = gem_files
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
