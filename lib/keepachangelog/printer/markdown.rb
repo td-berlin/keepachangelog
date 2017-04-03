@@ -93,7 +93,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/)."
       date = `git log -1 --format=%aI #{version} 2>/dev/null`.strip
       DateTime.parse(date).strftime('%Y-%m-%d')
     rescue
-      nil
+      Gem::Version.correct?(version) ? DateTime.now.strftime('%Y-%m-%d') : nil
     end
 
     def version_header(version)

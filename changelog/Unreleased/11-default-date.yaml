@@ -1,0 +1,4 @@
+---
+title: Date of a version in generated Markdown now defaults to current date instead of blank
+issue: 11
+type: Changed
