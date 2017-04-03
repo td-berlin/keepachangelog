@@ -1,0 +1,4 @@
+---
+title: Lines that end with special characters will no longer result in a crash
+type: Fixed
+issue: 10

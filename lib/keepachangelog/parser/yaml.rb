@@ -95,7 +95,7 @@ module Keepachangelog
 
     def generate_line(yaml)
       line = yaml['title']
-      line += + '.' unless line =~ /[[:punct:]]$/
+      line += '.' unless line =~ /[[:punct:]]$/
       line += " (!#{yaml['merge_request']})" if yaml['merge_request']
       line += " (##{yaml['issue']})" if yaml['issue']
       line += " (#{yaml['author']})" if yaml['author']

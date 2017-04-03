@@ -11,7 +11,7 @@ module Keepachangelog
       it 'should parse single version' do
         content = "
 ---
-title: Feature A
+title: 'Test: Here we are testing to parse `something`'
 type: New
 "
         cl = YamlParser.parse(content, '1.2.3')
@@ -19,7 +19,7 @@ type: New
           'versions' => {
             '1.2.3' => {
               'changes' => {
-                'New' => ['Feature A.']
+                'New' => ['Test: Here we are testing to parse `something`.']
               }
             }
           }
