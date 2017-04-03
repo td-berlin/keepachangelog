@@ -20,6 +20,9 @@ module Keepachangelog
           '0.1.0' => {
             'changes' => { 'New' => ['Feature A'] }
           },
+          'foo bar' => {
+            'changes' => { 'New' => ['Feature D'] }
+          },
           '0.10.0' => {
             'changes' => { 'New' => ['Feature B'] }
           },

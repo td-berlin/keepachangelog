@@ -26,11 +26,15 @@ module Keepachangelog
     end
 
     def compare_versions(a, b)
-      a = Gem::Version.new(a) if Gem::Version.correct?(a)
-      b = Gem::Version.new(b) if Gem::Version.correct?(b)
-      return -1 if b == 'Unreleased'
-      return 1 if a == 'Unreleased'
-      a <=> b
+      if Gem::Version.correct?(a) && Gem::Version.correct?(b)
+        Gem::Version.new(a) <=> Gem::Version.new(b)
+      elsif Gem::Version.correct?(a)
+        -1
+      elsif Gem::Version.correct?(b)
+        1
+      else
+        a <=> b
+      end
     end
 
     def clean_intro(text)
