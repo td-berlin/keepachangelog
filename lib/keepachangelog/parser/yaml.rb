@@ -104,7 +104,17 @@ module Keepachangelog
 
     def initialize_version(version)
       return if parsed_content['versions'][version]
-      parsed_content['versions'][version] = { 'changes' => {} }
+      parsed_content['versions'][version] = {
+        'changes' => {},
+        'date' => version_date(version)
+      }
+    end
+
+    def version_date(version)
+      date = `git log -1 --format=%aI #{version} 2>/dev/null`.strip
+      DateTime.parse(date).strftime('%Y-%m-%d')
+    rescue
+      Gem::Version.correct?(version) ? DateTime.now.strftime('%Y-%m-%d') : nil
     end
   end
 end

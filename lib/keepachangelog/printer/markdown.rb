@@ -44,7 +44,7 @@ module Keepachangelog
 
     def version(header, content)
       [
-        version_header(header),
+        version_header(header, content['date']),
         content['changes'].map { |k, v| section(k, v) }
       ]
     end
@@ -89,17 +89,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/)."
         .strip
     end
 
-    def version_date(version)
-      date = `git log -1 --format=%aI #{version} 2>/dev/null`.strip
-      DateTime.parse(date).strftime('%Y-%m-%d')
-    rescue
-      Gem::Version.correct?(version) ? DateTime.now.strftime('%Y-%m-%d') : nil
-    end
-
-    def version_header(version)
+    def version_header(version, date)
       header = version
       header = "[#{header}]" if options[:url]
-      date = version_date(version)
       header += " - #{date}" if date
       "## #{header}"
     end

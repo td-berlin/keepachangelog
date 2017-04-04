@@ -20,7 +20,8 @@ type: New
             '1.2.3' => {
               'changes' => {
                 'New' => ['Test: Here we are testing to parse `something`.']
-              }
+              },
+              'date' => DateTime.now.strftime('%Y-%m-%d')
             }
           }
         )
