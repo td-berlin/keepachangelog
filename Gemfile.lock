@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    keepachangelog (0.5.0)
+    keepachangelog (0.5.1)
       json (~> 2.0)
       thor (~> 0.19)
 
