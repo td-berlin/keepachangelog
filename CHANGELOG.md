@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [undefined]
+### Fixed
+- Handle arbitrary name for unreleased version when creating URL in Markdown.
+
+### New
+- The YAML parser now fetches the date when a version was created.
+
 ## [0.5.0] - 2017-04-04
 ### Fixed
 - Lines that end with special characters will no longer result in a crash. (#10)
@@ -53,6 +60,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Tool for reading Changelog in Markdown format.
 - Ability to convert Changelog to YAML.
 
+[undefined]: https://gitlab.com/ephracis/keepachangelog/compare/0.5.0...HEAD
 [0.5.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.1...0.5.0
 [0.4.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.0...0.4.1
 [0.4.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.3.1...0.4.0
