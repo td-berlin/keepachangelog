@@ -65,7 +65,7 @@ module Keepachangelog
 
     def anchor(v, i)
       from_v = i == v.length - 1 ? first_commit : v[i + 1]
-      to_v = v[i] == 'Unreleased' ? 'HEAD' : v[i]
+      to_v = Gem::Version.correct?(v[i]) ? v[i] : 'HEAD'
       "[#{v[i]}]: #{options[:url]}/compare/#{from_v}...#{to_v}"
     end
 
