@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         updateConfigs: [],
         commit: true,
         commitMessage: 'Release %VERSION%',
-        commitFiles: ['package.json'],
+        commitFiles: ['package.json', 'CHANGELOG.md', 'changelog/*', '\"changelog/Unreleased\"'],
         createTag: true,
         tagName: '%VERSION%',
         tagMessage: 'Version %VERSION%',
@@ -70,6 +70,13 @@ module.exports = function(grunt) {
       },
       build: {
         command: 'gem build keepachangelog.gemspec'
+      },
+      bump_changelog: {
+        command: [
+          "mv 'changelog/Ej släppt' 'changelog/" + grunt.option('setversion') + "'",
+          'keepachangelog --from yaml --to md > CHANGELOG.md',
+          "git add 'changelog/" + grunt.option('setversion') + "'"
+        ].join('&&')
       }
     },
     environments: {
@@ -113,18 +120,13 @@ module.exports = function(grunt) {
                               'test:spec',
                               'test:integration']);
   grunt.registerTask('build', ['shell:build']);
-
+  grunt.registerTask('release', function() {
+    grunt.task.run(['shell:bump_changelog']);
+    grunt.task.run('bump');
+  });
   grunt.registerTask('publish', function() {
     grunt.task.run('saveRevision');
     grunt.task.run(['ssh_deploy:download']);
-  });
-
-  grunt.registerTask('tag', function(target) {
-    if (arguments.length === 0) {
-      grunt.task.run(['test', 'bump:minor']);
-    } else {
-      grunt.task.run(['test', 'bump:' + target]);
-    }
   });
 
   // Default task.
