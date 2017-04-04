@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       },
       bump_changelog: {
         command: [
-          "mv 'changelog/Ej släppt' 'changelog/" + grunt.option('setversion') + "'",
+          "mv 'changelog/Unreleased' 'changelog/" + grunt.option('setversion') + "'",
           'keepachangelog --from yaml --to md > CHANGELOG.md',
           "git add 'changelog/" + grunt.option('setversion') + "'"
         ].join('&&')

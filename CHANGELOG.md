@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.4.1]
+## [0.5.0] - 2017-04-04
+### Fixed
+- Lines that end with special characters will no longer result in a crash. (#10)
+
+### Changed
+- Date of a version in generated Markdown now defaults to current date instead of blank. (#11)
+
+### New
+- Allow any name for unreleased versions. (#9)
+
+## [0.4.1] - 2017-03-30
 ### Fixed
 - Deploy job in CI will no longer be skipped even though it should run. (#8)
 
@@ -43,6 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Tool for reading Changelog in Markdown format.
 - Ability to convert Changelog to YAML.
 
+[0.5.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.1...0.5.0
 [0.4.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.0...0.4.1
 [0.4.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.3.1...0.4.0
 [0.3.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.3.0...0.3.1
