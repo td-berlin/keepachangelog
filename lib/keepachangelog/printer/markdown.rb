@@ -59,7 +59,7 @@ module Keepachangelog
 
     def anchors
       return nil unless options[:url]
-      v = versions.keys.sort.reverse
+      v = versions.keys.sort { |a, b| compare_versions(a, b) }.reverse
       (0..v.length - 1).map { |i| anchor(v, i) }
     end
 

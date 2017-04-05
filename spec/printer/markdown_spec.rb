@@ -30,9 +30,12 @@ module Keepachangelog
             'changes' => { 'New' => ['Feature C'] }
           }
         }
-        p = MarkdownPrinter.new(versions)
+        p = MarkdownPrinter.new(versions, url: 'test.io')
         md = p.to_s.delete("\n")
-        expect(md).to match(/.*0\.10\.0.*0\.2\.0.*0\.1\.0.*/)
+        expect(md).to match(/0\.10\.0.*0\.2\.0.*0\.1\.0/)
+        expect(md).to match('test.io/compare/0.1.0...0.2.0')
+        expect(md).to match('test.io/compare/0.2.0...0.10.0')
+        expect(md).to match('test.io/compare/0.10.0...HEAD')
       end
     end
   end
