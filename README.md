@@ -1,5 +1,5 @@
-[![build status](https://gitlab.com/ephracis/keepachangelog/badges/master/build.svg)](https://gitlab.com/ephracis/keepachangelog/commits/master)
-[![coverage report](https://gitlab.com/ephracis/keepachangelog/badges/master/coverage.svg)](https://gitlab.com/ephracis/keepachangelog/commits/master)
+[![build status](https://gitlab.com/basalt/keepachangelog/badges/master/build.svg)](https://gitlab.com/basalt/keepachangelog/commits/master)
+[![coverage report](https://gitlab.com/basalt/keepachangelog/badges/master/coverage.svg)](https://gitlab.com/basalt/keepachangelog/commits/master)
 [![Gem Version](https://badge.fury.io/rb/keepachangelog.svg)](https://badge.fury.io/rb/keepachangelog)
 
 # Changelog parser and transformer

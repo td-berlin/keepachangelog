@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Tool for parsing changelogs that are based on the '\
                        'keepachangelog.com standard. Changelogs can be dumped '\
                        'to JSON or YAML.'
-  spec.homepage      = 'https://gitlab.com/ephracis/keepachangelog'
+  spec.homepage      = 'https://gitlab.com/basalt/keepachangelog'
   spec.files         = gem_files
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
