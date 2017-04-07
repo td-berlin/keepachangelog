@@ -50,10 +50,11 @@ Feature: Parse changelogs
       ### New
       - Feature A
       """
-    When I successfully run `keepachangelog --from md --to yaml --in CHANGELOG.md --out test`
-    Then the file "test/Unreleased/feature-a.yaml" should contain:
+    When I successfully run `keepachangelog --from md --to yaml --in CHANGELOG.md`
+    Then the file "changelog/Unreleased/feature-a.yaml" should contain:
       """
       ---
       title: Feature A
       type: New
       """
+    And the output should contain "Finished writing changelog to 'changelog'"

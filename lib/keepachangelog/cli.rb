@@ -68,8 +68,9 @@ module Keepachangelog
       when :md, :markdown
         shell.say parser.to_md
       when :yaml, :yml
-        parser.to_yaml(options[:out])
-        shell.say "Finished writing changelog to '#{options[:out]}'"
+        out = options[:out] || 'changelog'
+        parser.to_yaml(out)
+        shell.say "Finished writing changelog to '#{out}'"
       else
         shell.error "Unknown output format #{options[:to]}"
         exit 2

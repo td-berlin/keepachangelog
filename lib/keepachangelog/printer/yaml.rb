@@ -18,7 +18,7 @@ module Keepachangelog
 
     def write_meta(path)
       meta = {}
-      %w(url title intro).each do |key|
+      %w[url title intro].each do |key|
         meta[key] = changelog[key] unless changelog[key].to_s.empty?
       end
       File.write(path, meta.to_yaml)

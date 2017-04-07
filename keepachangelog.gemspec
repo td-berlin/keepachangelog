@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'keepachangelog/version'
@@ -13,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'keepachangelog'
   spec.version       = Keepachangelog.version
   spec.authors       = ['Basalt AB']
-  spec.email         = %w(christoffer.brodd-reijer@basalt.se)
+  spec.email         = %w[christoffer.brodd-reijer@basalt.se]
   spec.licenses      = ['MIT']
   spec.summary       = 'Parser for changelogs based on keepachangelog.com'
   spec.description   = 'Tool for parsing changelogs that are based on the '\
