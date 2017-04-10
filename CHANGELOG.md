@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.3] - 2017-04-10
+### Fixed
+- Move project into the Basalt group on GitLab.com.
+- Print the output folder when generating YAML to default location.
+
 ## [0.5.2] - 2017-04-05
 ### Fixed
 - Fix incorrect previous version in URL in Markdown output. (#15)
@@ -64,13 +69,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Tool for reading Changelog in Markdown format.
 - Ability to convert Changelog to YAML.
 
-[0.5.2]: https://gitlab.com/ephracis/keepachangelog/compare/0.5.1...0.5.2
-[0.5.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.5.0...0.5.1
-[0.5.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.1...0.5.0
-[0.4.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.4.0...0.4.1
-[0.4.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.3.1...0.4.0
-[0.3.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.3.0...0.3.1
-[0.3.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.2.1...0.3.0
-[0.2.1]: https://gitlab.com/ephracis/keepachangelog/compare/0.2.0...0.2.1
-[0.2.0]: https://gitlab.com/ephracis/keepachangelog/compare/0.1.0...0.2.0
-[0.1.0]: https://gitlab.com/ephracis/keepachangelog/compare/77986bc...0.1.0
+[0.5.3]: https://gitlab.com/basalt/keepachangelog/compare/0.5.2...0.5.3
+[0.5.2]: https://gitlab.com/basalt/keepachangelog/compare/0.5.1...0.5.2
+[0.5.1]: https://gitlab.com/basalt/keepachangelog/compare/0.5.0...0.5.1
+[0.5.0]: https://gitlab.com/basalt/keepachangelog/compare/0.4.1...0.5.0
+[0.4.1]: https://gitlab.com/basalt/keepachangelog/compare/0.4.0...0.4.1
+[0.4.0]: https://gitlab.com/basalt/keepachangelog/compare/0.3.1...0.4.0
+[0.3.1]: https://gitlab.com/basalt/keepachangelog/compare/0.3.0...0.3.1
+[0.3.0]: https://gitlab.com/basalt/keepachangelog/compare/0.2.1...0.3.0
+[0.2.1]: https://gitlab.com/basalt/keepachangelog/compare/0.2.0...0.2.1
+[0.2.0]: https://gitlab.com/basalt/keepachangelog/compare/0.1.0...0.2.0
+[0.1.0]: https://gitlab.com/basalt/keepachangelog/compare/77986bc...0.1.0
