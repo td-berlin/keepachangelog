@@ -12,7 +12,7 @@ Feature: Parse changelogs
       ### New
       - Feature A
       """
-    When I successfully run `keepachangelog --from md --to json --in CHANGELOG.md`
+    When I run `keepachangelog --from md --to json --in CHANGELOG.md`
     Then the output should contain:
       """
       {"versions":{"Unreleased":{"url":null,"date":null,"changes":{"New":["Feature A"]}}},"intro":"Some intro goes here.","title":"My Changes"}
@@ -25,7 +25,7 @@ Feature: Parse changelogs
       title: Feature A
       type: New
       """
-    When I successfully run `keepachangelog --from yaml --to md`
+    When I run `keepachangelog --from yaml --to md`
     Then the output should contain:
       """
       # Change log
@@ -50,7 +50,7 @@ Feature: Parse changelogs
       ### New
       - Feature A
       """
-    When I successfully run `keepachangelog --from md --to yaml --in CHANGELOG.md`
+    When I run `keepachangelog --from md --to yaml --in CHANGELOG.md`
     Then the file "changelog/Unreleased/feature-a.yaml" should contain:
       """
       ---

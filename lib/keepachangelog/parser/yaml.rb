@@ -95,7 +95,7 @@ module Keepachangelog
 
     def generate_line(yaml)
       line = yaml['title']
-      line += '.' unless line =~ /[[:punct:]]$/
+      line += '.' unless line =~ /\p{Punct}$/
       line += " (!#{yaml['merge_request']})" if yaml['merge_request']
       line += " (##{yaml['issue']})" if yaml['issue']
       line += " (#{yaml['author']})" if yaml['author']
@@ -112,9 +112,9 @@ module Keepachangelog
 
     def version_date(version)
       date = `git log -1 --format=%aI #{version} 2>/dev/null`.strip
-      DateTime.parse(date).strftime('%Y-%m-%d')
-    rescue
-      Gem::Version.correct?(version) ? DateTime.now.strftime('%Y-%m-%d') : nil
+      Time.parse(date).strftime('%Y-%m-%d')
+    rescue StandardError
+      Gem::Version.correct?(version) ? Time.now.strftime('%Y-%m-%d') : nil
     end
   end
 end

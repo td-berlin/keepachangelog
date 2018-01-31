@@ -76,5 +76,6 @@ module Keepachangelog
         exit 2
       end
     end
+    # rubocop:enable Metrics/AbcSize
   end
 end

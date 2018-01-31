@@ -109,7 +109,7 @@ module Keepachangelog
         content = 'test changelog'
         allow(File).to receive(:open).and_call_original
         expect(File).to receive(:open).with('test.md')
-          .and_yield(StringIO.new(content))
+                                      .and_yield(StringIO.new(content))
         expect_any_instance_of(MarkdownParser).to receive(:parse).with(content)
         MarkdownParser.load('test.md')
       end

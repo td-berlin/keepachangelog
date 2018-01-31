@@ -1,5 +1,3 @@
-# coding: utf-8
-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'keepachangelog/version'
@@ -25,12 +23,12 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-  spec.add_development_dependency 'bundler', '~> 1.14'
-  spec.add_development_dependency 'rake', '~> 12.0'
-  spec.add_development_dependency 'rspec', '~> 3.5'
-  spec.add_development_dependency 'rubocop', '~> 0.47'
-  spec.add_development_dependency 'simplecov', '~> 0.14'
   spec.add_development_dependency 'aruba', '~> 0.14'
-  spec.add_runtime_dependency     'thor', '~> 0.19'
-  spec.add_runtime_dependency     'json', '~> 2.0'
+  spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'rake', '~> 12.3'
+  spec.add_development_dependency 'rspec', '~> 3.7'
+  spec.add_development_dependency 'rubocop', '~> 0.52'
+  spec.add_development_dependency 'simplecov', '~> 0.15'
+  spec.add_runtime_dependency     'json', '~> 2.1'
+  spec.add_runtime_dependency     'thor', '~> 0.20'
 end
