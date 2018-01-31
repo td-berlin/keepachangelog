@@ -42,17 +42,26 @@ module Keepachangelog
       text.to_s.strip
     end
 
+    def compare_sections(a, b)
+      if options[:section_order]
+        options[:section_order].index(a) <=> options[:section_order].index(b)
+      else
+        a <=> b
+      end
+    end
+
     def version(header, content)
       [
         version_header(header, content['date']),
-        content['changes'].map { |k, v| section(k, v) }
+        content['changes'].sort { |a, b| compare_sections(a[0], b[0]) }
+                          .map { |k, v| section(k, v) }
       ]
     end
 
     def section(header, content)
       [
         "### #{header}",
-        content.map { |c| change(c) },
+        content.sort.map { |c| change(c) },
         ''
       ]
     end

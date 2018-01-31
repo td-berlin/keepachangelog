@@ -71,6 +71,7 @@ module Keepachangelog
       parsed_content['title'] = yaml['title']
       parsed_content['url'] = yaml['url']
       parsed_content['intro'] = yaml['intro']
+      parsed_content['section_order'] = yaml['section_order']
     end
 
     def add_change(yaml, version)

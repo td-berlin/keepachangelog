@@ -49,6 +49,7 @@ module Keepachangelog
       p = MarkdownPrinter.new(parsed_content['versions'],
                               title: parsed_content['title'],
                               intro: parsed_content['intro'],
+                              section_order: parsed_content['section_order'],
                               url: parsed_content['url'])
       p.to_s
     end

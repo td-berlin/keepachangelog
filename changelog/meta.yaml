@@ -1,2 +1,14 @@
 ---
 url: https://gitlab.com/basalt/keepachangelog
+section_order:
+  - Added
+  - New
+  - Nytt
+  - Changed
+  - Ändrat
+  - Removed
+  - Borttaget
+  - Fixed
+  - Fixat
+  - Security
+  - Säkerhet
