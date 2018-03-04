@@ -1,4 +1,5 @@
 require 'date'
+require 'time'
 require 'keepachangelog/version'
 require 'keepachangelog/parser'
 require 'keepachangelog/parser/markdown'
