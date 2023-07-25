@@ -9,7 +9,7 @@ gem_files = git_files.reject { |f| f.match('CONTRIBUTING.md') }
 gem_files = git_files.reject { |f| f.match('Gruntfile.js') }
 
 Gem::Specification.new do |spec|
-  spec.name          = 'keepachangelog'
+  spec.name          = 'td-keepachangelog'
   spec.version       = Keepachangelog.version
   spec.authors       = ['Basalt AB']
   spec.email         = %w[christoffer.brodd-reijer@basalt.se]
@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.7'
   spec.add_development_dependency 'rubocop', '~> 0.52'
   spec.add_development_dependency 'simplecov', '~> 0.15'
-  spec.add_runtime_dependency     'json', '~> 2.1'
-  spec.add_runtime_dependency     'thor', '~> 0.20'
+  spec.add_runtime_dependency     'json'
+  spec.add_runtime_dependency     'thor'
 end

@@ -1,6 +1,4 @@
-[![build status](https://gitlab.com/basalt/keepachangelog/badges/master/build.svg)](https://gitlab.com/basalt/keepachangelog/commits/master)
-[![coverage report](https://gitlab.com/basalt/keepachangelog/badges/master/coverage.svg)](https://gitlab.com/basalt/keepachangelog/commits/master)
-[![Gem Version](https://badge.fury.io/rb/keepachangelog.svg)](https://badge.fury.io/rb/keepachangelog)
+Fork of https://gitlab.com/basalt/keepachangelog release to TD Gem repo
 
 # Changelog parser and transformer
 

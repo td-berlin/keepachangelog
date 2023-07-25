@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.2.td] - 2023-07-25
+### Fixed
+- Loosen dependencies
+
 ## [0.6.1] - 2018-03-06
 ### Fixed
 - Dates were incorrelty set to today's date.
